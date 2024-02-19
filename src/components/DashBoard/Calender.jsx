@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./Dash-css/Calander.css";
 
 const Calendar = () => {
-  const [month, setMonth] = useState(7);
-  const [year, setYear] = useState(2021);
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(2024);
 
   const prevMonth = () => {
     setMonth((month) => (month === 0 ? 11 : month - 1));
