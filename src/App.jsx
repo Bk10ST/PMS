@@ -20,40 +20,28 @@ import CreateList from "./components/DashBoard/CreateList";
 import Yourlist from "./components/DashBoard/Yourlist";
 import Setting from "./components/DashBoard/Setting";
 import Logout from "./components/DashBoard/Logout";
-import Default from "./components/layout/Default";
+import Frontpage from "./components/Landingpage/frontpage/Frontpage";
+
 
 const App = () => {
   return (
     <div>
       <ChakraProvider>
-        <Router>
-          <Routes>
-            <Route
-              path="*"
-              element={
-                <>
-                  <Navbar />
-                  <Routes>
-                    <Route path="/" element={<FrontPage />} />
-                    <Route path="blog" element={<Blog />} />
-                    <Route path="guide" element={<Guide />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="sign" element={<SignUp />} />
-                    <Route path="private-auth" element={<PrivateAuth />} />
-                  </Routes>
-                </>
-              }
-            />
-              <Route path="/dashboard" element={<Default />}>
-              <Route path="profile" element={<Profile />} />
-              <Route path="createlist" element={<CreateList />} />
-              <Route path="yourlist" element={<Yourlist />} />
-              <Route path="setting" element={<Setting />} />
-              <Route path="logout" element={<Logout />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </Router>
+       <Router>
+        <Routes>
+          <Route path="/" element={<Frontpage/>} />
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/guide" element={<Guide/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/sign" element={<SignUp/>}/>
+          <Route path="/private-auth" element={<PrivateAuth/>}/>
+          <Route path="/dashboard" element={<Profile/>}/>
+          <Route path="/createList" element={<CreateList/>}/>
+          <Route path="/your-list" element={<Yourlist/>}/>
+          <Route path="/setting" element={<Setting/>}/>
+          <Route path="/logout" element={<Logout/>}/>
+        </Routes>
+       </Router>
       </ChakraProvider>
     </div>
   );
