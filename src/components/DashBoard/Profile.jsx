@@ -131,6 +131,7 @@ const Profile = () => {
             borderRadius: "15px",
             backgroundColor: "#7B61FF",
             color: "white",
+            marginTop: "3%"
           }}
         >
           <div className="card-body">
@@ -153,7 +154,7 @@ const Profile = () => {
                 width: "30%", 
                 height: "30%" , 
                 fontSize: "90%",
-                paddingBottom: "5%"
+                paddingBottom: "5%", 
               }}
               id="view"
             >

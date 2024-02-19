@@ -44,7 +44,7 @@ const App = () => {
                 </>
               }
             />
- <Route path="/dashboard" element={<Default />}>
+              <Route path="/dashboard" element={<Default />}>
               <Route path="profile" element={<Profile />} />
               <Route path="createlist" element={<CreateList />} />
               <Route path="yourlist" element={<Yourlist />} />

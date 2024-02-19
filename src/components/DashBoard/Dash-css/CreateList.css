@@ -1,0 +1,6 @@
+.create-btn {
+    margin-left: 400px;
+    background-color: var(--main-background-color);
+    border-radius: 10px;
+    padding: 5px;
+}

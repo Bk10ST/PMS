@@ -4,6 +4,7 @@ import Topbar from './Topbar'
 import useDashHook from './CustomHooks/DashHook'
 import './Dash-css/Dashboard.css'
 import Profile from './Profile'
+import CreateList from './CreateList'
 
 
 const Dashboard = () => {
@@ -16,7 +17,8 @@ const {hideTopBar}= useDashHook();
     !hideTopBar &&
     <Topbar className='top-bar'/>
    }
-<Profile/>
+{/* <Profile/> */}
+<CreateList/>
     </div>
   )
 }
