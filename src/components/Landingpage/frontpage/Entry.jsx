@@ -2,11 +2,13 @@ import React from 'react'
 import './Css-Desk/Frontpage.css'
 import { Link } from 'react-router-dom'
 import './Css-Desk/Entry.css'
+import Navbar from '../Navbar/Navbar'
 
 
 const Entry = () => {
   return (
     <div className='entry-module'>
+        {/* <Navbar /> */}
           <div className="text-modules">
         <div className="frontpage-title">
           <h2 className="big-text-module">

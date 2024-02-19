@@ -1,9 +1,9 @@
 #top-bar{
-    width: 85.2%;
+    width: 100%;
+    background-color: #1e1e1e;
     /* background-color: var(--main-background-color); */
-    /* background-color: hsl(165, 8%, 90%); */
-    margin-left: 14.8%;
-    /* border-bottom:  ; */
+   padding: 15px;
+   z-index: 0;
 
 }
 #bell-icon{
