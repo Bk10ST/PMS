@@ -1,20 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import peronal from "./FrontpageAssests/todo.jpg";
 import progress from "./FrontpageAssests/progress.jpg";
 import account from "./FrontpageAssests/account.jpg";
-import './Css-Desk/Reason.css'
 
+import './Css-Desk/Reason.css'
 
 const Reason = () => {
   return (
     <div className='reason-component'>
-             <div className="reason-modules">
+      <div className="reason-modules">
         <h2 className="reason-title">Reason to choose our site</h2>
       </div>
       <div className="card-container ">
 
-        <div className="card" id='card-item' style={{ width: "18rem"  }}>
+        <div className="card" id='card-item' style={{ width: "18rem" }}>
           <img src={peronal} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">Activities</h5>

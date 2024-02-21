@@ -10,76 +10,102 @@ import { validationSchema } from '../schema';
 export const LoginForm = () => {
     const toast = useToast();
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [show, setShow] = useState(false);
 
     const handleClick = () => setShow(!show);
-    const handleSubmit = async (values, { setSubmitting }) => {
-        const response = await axios.post('http://localhost:8080/register', { email, password });
-        console.log(response.json());
-        toast({
-            title: 'Successfully Logined',
-            description: "Welcome Back !!",
-            status: 'success',
-            duration: 9000,
-            position: 'bottom-right',
-            isClosable: true,
-        });
-        setTimeout(() => {
-            setSubmitting(false);
-            const loggedInUsers = JSON.parse(localStorage.getItem('loggedInUsers')) || [];
-            const payloadUsers = [...loggedInUsers, values.email]
-            localStorage.setItem('loggedInUsers', JSON.stringify(payloadUsers));
+
+    const handleSubmit = async (values) => {
+        try {
+            const { email, password } = values;
+            const getEmail = localStorage.getItem('email');
+            const getPassword = localStorage.getItem('password');
+    
+            if (email === getEmail && password === getPassword) {
+                toast({
+                    title: 'Successfully Logged in',
+                    description: 'Welcome Back!',
+                    status: 'success',
+                    duration: 9000,
+                    position: 'bottom-right',
+                    isClosable: true,
+                });
+            } else {
+                toast({
+                    title: 'Login Failed',
+                    description: 'Invalid email or password.',
+                    status: 'error',
+                    duration: 9000,
+                    position: 'bottom-right',
+                    isClosable: true,
+                });
+            }
+    
+            const response = await axios.post('http://localhost:8080/login', { email, password });
+            console.log(response.data); 
+    
             navigate('/');
-        }, 400);
+        } catch (error) {
+            console.error('Login failed:', error);
+            toast({
+                title: 'Login Failed',
+                description: 'Invalid email or password.',
+                status: 'error',
+                duration: 9000,
+                position: 'bottom-right',
+                isClosable: true,
+            });
+        }
     };
+    
+
 
     return (
         <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={validationSchema}
-            
+            onSubmit={handleSubmit}
         >
-            <Form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <Field name="email">
-                        {({ field }) => (
-                            <Input {...field} id="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
-                        )}
-                    </Field>
-                    <ErrorMessage name="email" component="div" className="error text-danger d-flex justify-content-end" />
-                </div>
+            {({ values, handleChange, handleSubmit }) => (
+                <Form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="email">Email:</label>
+                        <Field name="email">
+                            {({ field }) => (
+                                <Input {...field} id="email" type="email" placeholder="Email" value={values.email} onChange={handleChange} />
+                            )}
+                        </Field>
+                        <ErrorMessage name="email" component="div" className="error text-danger d-flex justify-content-end" />
+                    </div>
 
-                <div>
-                    <label htmlFor="password" className='pt-4'>Password:</label>
-                    <Field name="password">
-                        {({ field }) => (
-                            <InputGroup size='md'>
-                                <Input {...field} id="password" pr='4.5rem' type={show ? 'text' : 'password'} placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
-                                <InputRightElement width='4.5rem'>
-                                    <Button h='1.75rem' size='sm' onClick={handleClick}>
-                                        {show ? 'Hide' : 'Show'}
-                                    </Button>
-                                </InputRightElement>
-                            </InputGroup>
-                        )}
-                    </Field>
-                    <ErrorMessage name="password" component="div" className="error text-danger d-flex justify-content-end" />
-                </div>
+                    <div>
+                        <label htmlFor="password" className='pt-4'>Password:</label>
+                        <Field name="password">
+                            {({ field }) => (
+                                <InputGroup size='md'>
+                                    <Input {...field} id="password" pr='4.5rem' type={show ? 'text' : 'password'} placeholder="Password" value={values.password} onChange={handleChange} />
+                                    <InputRightElement width='4.5rem'>
+                                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                            {show ? 'Hide' : 'Show'}
+                                        </Button>
+                                    </InputRightElement>
+                                </InputGroup>
+                            )}
+                        </Field>
+                        <ErrorMessage name="password" component="div" className="error text-danger d-flex justify-content-end" />
+                    </div>
 
-                <div className='d-flex justify-content-between align-item-center pt-3'>
-                    <Checkbox className=''>Remember Me</Checkbox>
-                    <Link to={'/forgot-password'}>
-                        <b className='signUp'>Forgot Password?</b>
+                    <div className='d-flex justify-content-between align-item-center pt-3'>
+                        <Checkbox className=''>Remember Me</Checkbox>
+                        <Link to={'/forgot-password'}>
+                            <b className='signUp'>Forgot Password?</b>
+                        </Link>
+                    </div>
+                    <Button colorScheme='' className='w-100 mt-4 btn-login' borderRadius='none' fontSize='14px' type="submit">Login</Button>
+                    <Link to={'/sign'}>
+                        <h6 className='mt-3 signUp'>SignUp</h6>
                     </Link>
-                </div>
-                <Button colorScheme='' className='w-100 mt-4 btn-login' borderRadius='none' fontSize='14px' type="submit">Login</Button>
-                <Link to={'/sign-up'}>
-                    <h6 className='mt-3 signUp'>SignUp</h6>
-                </Link>
-            </Form>
+                </Form>
+            )}
         </Formik>
     );
 };

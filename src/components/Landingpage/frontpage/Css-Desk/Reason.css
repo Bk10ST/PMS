@@ -1,40 +1,40 @@
-
-.reason-component{
-    background-color: var(--main-background-color);
+.reason-component {
+    background-color: #e3e7e6;
     padding-bottom: 5%;
 }
 
 
 
-.reason-title{
+.reason-title {
     text-align: center;
     margin-top: 5%;
     padding-top: 5%;
-    color: white;
-    background-color: var(--main-background-color);
+    background-color: #e3e7e6;
+    color: var(--bs-heading-color);
 }
 
 
 
-.card-img-top{
+.card-img-top {
     width: 100%;
     height: 100%;
 }
 
-.card-container{
+.card-container {
     display: flex;
     margin-top: 3%;
     justify-content: space-evenly;
     flex-wrap: wrap;
- background-color: var(--main-background-color);
+    background-color: #e3e7e6;
+
 }
 
 
-#card-item{
+#card-item {
     border: none;
     border: 10px solid white;
 }
 
-.card-reason{
+.card-reason {
     z-index: 1;
 }

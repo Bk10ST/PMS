@@ -11,9 +11,9 @@ const Description = () => {
       <div className="description">
         <img src={frame} alt="" className="frame-img" />
         <div className="description-items">
-          <h5 className="descp-text">
+          <h2 className="descp-text">
             Plane thing carefully To keep things neat
-          </h5>
+          </h2>
           <p className="desp-text">
             Our website helps to keep your task and acoounting history well
             managed. You can calculate your day to day progress by analizing the

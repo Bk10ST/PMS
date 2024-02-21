@@ -3,26 +3,47 @@ import React, { useState } from 'react';
 import { Button, Input, InputGroup, InputRightElement, useToast } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import axios from 'axios';
 
 export const SignUpForm = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
+    const toast = useToast();
+
     const handleClick = () => setShow(!show);
 
-    const handleSignUp = () => {
-        const toast = useToast();
-        const userName = localStorage.setItem('user', '')
-        const email = localStorage.setItem('email', '')
-        toast({
-            title: 'Account Created',
-            description: "We have created a new account !",
-            status: 'success',
-            duration: 9000,
-            position: 'bottom-right',
-            isClosable: true,
-        });
-        navigate('/')
-    }
+    const handleSignUp = async (values, { setSubmitting }) => {
+        const { email, password } = values;
+        try {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            toast({
+                title: 'Account Created',
+                description: 'We have created a new account!',
+                status: 'success',
+                duration: 9000,
+                position: 'bottom-right',
+                isClosable: true,
+            });
+            navigate('/');
+
+            const response = await axios.post('http://localhost:8080/register', { email, password });
+            console.log('Response:', response.data);
+                
+        } catch (error) {
+            console.error('Sign Up failed:', error);
+            toast({
+                title: 'Sign Up Failed',
+                description: 'An error occurred while signing up. Please try again later.',
+                status: 'error',
+                duration: 9000,
+                position: 'bottom-right',
+                isClosable: true,
+            });
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
 
     return (
         <Formik
@@ -38,11 +59,12 @@ export const SignUpForm = () => {
                 password: Yup.string().required('Required'),
                 rememberMe: Yup.boolean(),
             })}
-            onSubmit={handleSignUp}>
+            onSubmit={handleSignUp}
+        >
             <Form>
                 <div>
                     <label htmlFor="userName">Username:</label>
-                    <Field name="userName" as={Input} placeholder="UserName" />
+                    <Field name="userName" as={Input} placeholder="Username" />
                     <ErrorMessage name="userName" component="div" className="error text-danger d-flex justify-content-end" />
                 </div>
                 <div className="pt-1">
@@ -55,12 +77,7 @@ export const SignUpForm = () => {
                     <InputGroup size="md">
                         <Field name="password">
                             {({ field }) => (
-                                <Input
-                                    {...field}
-                                    pr="4.5rem"
-                                    type={show ? 'text' : 'password'}
-                                    placeholder="Enter password"
-                                />
+                                <Input {...field} pr="4.5rem" type={show ? 'text' : 'password'} placeholder="Enter password" />
                             )}
                         </Field>
                         <InputRightElement width="4.5rem">
@@ -72,7 +89,7 @@ export const SignUpForm = () => {
                     <ErrorMessage name="password" component="div" className="error text-danger d-flex justify-content-end" />
                 </div>
                 <Button type="submit" colorScheme="" className="w-100 mt-4 btn-login" borderRadius="none" fontSize="14px">
-                    SignUp
+                    Sign Up
                 </Button>
                 <Link to="/login">
                     <h6 className="mt-3 signUp">Login</h6>
@@ -81,4 +98,3 @@ export const SignUpForm = () => {
         </Formik>
     );
 };
-

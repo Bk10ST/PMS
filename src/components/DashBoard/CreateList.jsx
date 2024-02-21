@@ -11,11 +11,11 @@ const CreateList = () => {
         Create list
       </button>
       <div >
-      <ListGroup as="ol" numbered>
+      {/* <ListGroup as="ol" numbered>
         <ListGroup.Item as="li">List 1</ListGroup.Item>
         <ListGroup.Item as="li">List 2</ListGroup.Item>
         <ListGroup.Item as="li">List 3</ListGroup.Item>
-      </ListGroup>
+      </ListGroup> */}
       </div>
     </div>
   );

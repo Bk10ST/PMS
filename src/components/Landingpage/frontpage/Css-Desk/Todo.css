@@ -1,56 +1,60 @@
-
-.box-module{
-    margin-top: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    width: 40%;
-    margin-left: 55%;
-    justify-content: space-around;
+.todo-lists {
+  background-color: #e3e7e6;
+    height: 20%;
 }
 
-#card-module{
+.box-module {
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  margin-left: 55%;
+  justify-content: space-around;
+}
+
+#card-module {
   background-color: var(--main-background-color);
 }
 
-.box-module > div{
-    margin-top: 5%;
+.box-module>div {
+  margin-top: 5%;
 }
 
 .custom-img {
-    width: 20%;
-    margin-left: 39%;
-    margin-top: 5%;
-    object-fit: cover;
-    z-index: 1;
-    background-color: var(--main-background-color);
-  }
-  
-  #text-sectioin{
-    background-color: var(--main-background-color);
-  }
+  width: 20%;
+  margin-left: 39%;
+  margin-top: 5%;
+  object-fit: cover;
+  z-index: 1;
+  background-color: var(--main-background-color);
+}
 
-  #customize-text{
-    font-size: 90%;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    background-color: var(--main-background-color);
-  }
+#text-sectioin {
+  background-color: var(--main-background-color);
+}
 
-  .guide-module{
-    margin-top: -15%;
-    margin-left: 5%;
-  }
+#customize-text {
+  font-size: 90%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: var(--main-background-color);
+}
 
-  .custom-text{
-     font-size: 70%;
-     width: 40%;
-     text-align: center;
-     margin-left: 1%;
-  }
+.guide-module {
+  margin-top: -15%;
+  margin-left: 5%;
+  background-color: #e3e7e6;
+ height: 250px;
+}
 
-  #text-section{
-    background-color: var(--main-background-color);
-  }
+.custom-text {
+  font-size: 80%;
+  width: 40%;
+  text-align: center;
+  margin-left: 1%;
+}
 
-
+#text-section {
+  background-color: var(--main-background-color);
+}

@@ -4,13 +4,14 @@ import List from "./icon/Vector.png";
 import Financial from "./icon/Vector (1).png";
 import Oragnize from "./icon/organize.png";
 import Anlyze from "./icon/Group (1).png";
+
 import './Css-Desk/Todo.css'
 
 
 const Todo = () => {
   return (
-    <div>
-           <div className="box-module">
+    <div className='todo-lists'>
+      <div className="box-module pb-3">
         <div
           className="card"
           style={{ width: "14rem", backgroundColor: "#7B61FF" }}
@@ -41,7 +42,7 @@ const Todo = () => {
           style={{ width: "14rem", backgroundColor: "#7B61FF" }}
         >
           <img src={Financial} className="card-img-top custom-img" alt="..." />
-          <div className="card-body" id='card-module'>
+          <div className="card-body " id='card-module'>
             <p className="card-text" id="customize-text">
               RECORD YOUR FINANCIAL HISTORY.
             </p>
@@ -61,7 +62,7 @@ const Todo = () => {
         </div>
       </div>
       <div className="guide-module">
-        <h5>creating a todo-list will help in development and growth</h5>
+        <h2>Creating a todo-list will help in development</h2>
         <p className="custom-text">
           To Do list is vitally important because it helps you to prioritize.
           There are many things you could be doing. You can write down a To Do
@@ -74,8 +75,8 @@ const Todo = () => {
         </p>
       </div>
 
-     
-    </div>
+
+    </div >
   )
 }
 

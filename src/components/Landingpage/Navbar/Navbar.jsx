@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Nav.css";
 import logo from "./assests/logo.png";
 
+import "./Nav.css";
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-white" id="main-navbar">
         <div className="container-fluid">
           <img src={logo} alt="" className="img-item" />
-          <Link className="navbar-brand" to="#">
+          <Link className="navbar-brand" to="/">
             OrganizeMe
           </Link>
           <button
