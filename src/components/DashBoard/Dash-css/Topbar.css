@@ -1,9 +1,10 @@
 #top-bar{
     width: 100%;
     background-color: #1e1e1e;
-    /* background-color: var(--main-background-color); */
+    background-color: #e3e7e6;
    padding: 15px;
    z-index: 0;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 }
 #bell-icon{

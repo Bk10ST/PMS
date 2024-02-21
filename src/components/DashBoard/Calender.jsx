@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dash-css/Calander.css";
 
 const Calendar = () => {
-  const [month, setMonth] = useState(1);
-  const [year, setYear] = useState(2024);
+  const [month, setMonth] = useState(new Date().getMonth());
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [highlightedDates, setHighlightedDates] = useState([5, 10, 15]); // Example highlighted dates provided by the user
+
+  useEffect(() => {
+    const currentDate = new Date();
+    setMonth(currentDate.getMonth());
+    setYear(currentDate.getFullYear());
+  }, []);
 
   const prevMonth = () => {
-    setMonth((month) => (month === 0 ? 11 : month - 1));
-    setYear((year) => (month === 0 ? year - 1 : year));
+    setMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
+    setYear((prevMonth) => (prevMonth === 0 ? year - 1 : year));
   };
 
   const nextMonth = () => {
-    setMonth((month) => (month === 11 ? 0 : month + 1));
-    setYear((year) => (month === 11 ? year + 1 : year));
+    setMonth((nextMonth) => (nextMonth === 11 ? 0 : nextMonth + 1));
+    setYear((nextMonth) => (nextMonth === 11 ? year + 1 : year));
   };
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -47,7 +54,7 @@ const Calendar = () => {
       </ul>
       <ul className="days">
         {daysArray.map((day) => (
-          <li key={day}>{day}</li>
+          <li key={day} className={highlightedDates.includes(day) ? 'highlighted' : ''}>{day}</li>
         ))}
       </ul>
     </div>

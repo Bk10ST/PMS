@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -21,9 +21,11 @@ import Yourlist from "./components/DashBoard/Yourlist";
 import Setting from "./components/DashBoard/Setting";
 import Logout from "./components/DashBoard/Logout";
 import Frontpage from "./components/Landingpage/frontpage/Frontpage";
+import useTotalTask from "./components/DashBoard/CustomHooks/TotalTask";
 
 
 const App = () => {
+
   return (
     <div>
       <ChakraProvider>
@@ -35,9 +37,9 @@ const App = () => {
           <Route path="/login" element={<Login/>}/>
           <Route path="/sign" element={<SignUp/>}/>
           <Route path="/private-auth" element={<PrivateAuth/>}/>
-          <Route path="/dashboard" element={<Profile/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/createList" element={<CreateList/>}/>
-          <Route path="/your-list" element={<Yourlist/>}/>
+          <Route path="/yourlist" element={<Yourlist/>}/>
           <Route path="/setting" element={<Setting/>}/>
           <Route path="/logout" element={<Logout/>}/>
         </Routes>

@@ -13,10 +13,10 @@ const {hideTopBar}= useDashHook();
   return (
     <div className='dashboard-section'>
       <DashNav/>
-   {
+   {/* {
     !hideTopBar &&
-    <Topbar className='top-bar'/>
-   }
+    // <Topbar className='top-bar'/>
+   } */}
 
 
     </div>

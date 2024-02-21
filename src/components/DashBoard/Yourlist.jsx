@@ -1,8 +1,12 @@
 import React from 'react'
+import Dashboard from './Dashboard'
 
 const Yourlist = () => {
   return (
-    <div>Yourlist</div>
+    <div>
+      <Dashboard/>
+      <h1>Yourlist</h1>
+    </div>
   )
 }
 

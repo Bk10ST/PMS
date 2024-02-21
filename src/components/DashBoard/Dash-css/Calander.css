@@ -3,6 +3,9 @@
     margin-left: 70%;
     margin-top: -500px;
 }
+.highlighted {
+  color: red; /* or any other color you want */
+}
 
 
 .month {
