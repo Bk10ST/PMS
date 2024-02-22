@@ -15,62 +15,92 @@
     margin-top: -50px;
   }
 
-  .btn-add{
-    border: 2px solid  var(--main-background-color);
-    padding: 6px;
-    font-size: 80%;
-    background-color: var(--main-background-color);
-    color: white;
-    border-radius: 10px;
-    margin-top: 10px;
+  .tab-container{
+    margin-top: 50px;
   }
 
-  .lists-container {
-    width: 100%;
-    /* margin-left: 3px; */
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-   
-  }
-
-  .list-heading{
-    background-color: greenyellow;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding: 2px;
-    text-align: center;
-   
+  .list-creation{
+   border: 2px solid var(--main-color); 
+   border-radius: 5px;
+   width: 70%; /* Set width as needed */
+   padding: 10px; /* Adjust padding */
+   font-size: 16px; /* Adjust font size */
+   /* border: 1px solid #ccc;  */
+   /* border-radius: 5px; */
 
   }
 
-  .icon-div {
-    display: flex;
-padding-top: 10px;
-    gap: 10px;
-    margin-right: 5px; 
-  }
-
-  .list-card{
-    width: 300px;
-    padding-bottom: 10px;
-    margin-left: 5%;
-    margin-top: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; 
-  }
-
-
-  .radio-btn{
-    justify-content: center;
-  }
   
-  .list-line{
-    border-bottom: 2px solid var(--main-background-color);
-    padding: 5px;
-    width: 100%;
-    margin-top: 140px;
-    position: absolute;
-    opacity: 0.2;
-  }
+.list-head{
+  color: var(--main-color);
+}
+
+
+.list-name{
+  border: 5px solid var(--main-color);
+  padding: 9px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+  
+
+.task-add{
+  background-color: var(--main-background-color);
+  padding: 6px;
+  width: 15%;
+  border-radius: 10px;
+  color: white;
+}
+
+.listed-items{
+  margin-top: 10px;
+  margin-left: -10%;
+}
+
+
+.task-creation{
+  border: 3px solid var(--main-color);
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
+
+.items{
+  margin-top: 30px;
+}
+
+
+.task-input{
+  border: 2px solid var(--main-color);
+  padding: 5px;
+  border-radius: 5px;
+  padding-right: 4px;
+}
+.list-div{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+
+.create{
+  margin-left: 15px;
+  border: 2px solid var(--main-color);
+  padding: 5px;
+  border-radius: 10px;
+  /* transition: 0.3s; */
+  box-shadow: 0 9px var(--main-background-color);
+}
+
+.create:hover{
+  /* scale: 1.1; */
+}
+
+.create:active{
+  /* background-color: w; */
+  box-shadow: 0 5px var(--main-color);
+  /* color: white; */
+  transform: translateY(4px);
+}
+
