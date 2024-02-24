@@ -1,6 +1,32 @@
 .create-btn {
-    margin-left: 400px;
     background-color: var(--main-background-color);
     border-radius: 10px;
     padding: 5px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+.dashboard-title{
+    font-size: 22px;
+    font-weight: 600;
+}
+.create-list{
+    background-color: #e3e7e6;
+    height: 100vh;
+}
+
+.list-form {
+    background-color: white;
+    height: 500px;
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    transition: height 1.5s ease;
+    border-radius: 7px;
+    margin-top: 30px;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap;
 }

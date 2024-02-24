@@ -2,25 +2,27 @@ import React from 'react'
 import DashNav from './DashNav'
 import Topbar from './Topbar'
 import useDashHook from './CustomHooks/DashHook'
-import './Dash-css/Dashboard.css'
+import { CreateList } from './CreateList'
+import Yourlist from './Yourlist'
 import Profile from './Profile'
-import CreateList from './CreateList'
 
+import './Dash-css/Dashboard.css'
 
 const Dashboard = () => {
-const {hideTopBar}= useDashHook();
+  const { hideTopBar } = useDashHook();
 
   return (
     <div className='dashboard-section'>
-      <DashNav/>
-   {
-    !hideTopBar &&
-    <Topbar className='top-bar'/>
-   }
-{/* <Profile/> */}
-<CreateList/>
+      <DashNav />
+      {
+        !hideTopBar &&
+        <Topbar className='top-bar' />
+      }
+      <Profile />
+      <CreateList />
+      <Yourlist />
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;

@@ -17,35 +17,31 @@ export const LoginForm = () => {
     const handleSubmit = async (values) => {
         try {
             const { email, password } = values;
-            const getEmail = localStorage.getItem('email');
-            const getPassword = localStorage.getItem('password');
-    
-            if (email === getEmail && password === getPassword) {
+            const response = await axios.post('http://localhost:8080/login', { email, password });
+            console.log(response.status);
+            if (response.status === 200) {
                 toast({
-                    title: 'Successfully Logged in',
-                    description: 'Welcome Back!',
+                    title: 'Login Success',
+                    description: 'Welcome back user!',
                     status: 'success',
                     duration: 9000,
                     position: 'bottom-right',
                     isClosable: true,
                 });
-            } else {
+                navigate('/');
+            }
+            else {
                 toast({
-                    title: 'Login Failed',
-                    description: 'Invalid email or password.',
+                    title: 'Login failed',
+                    description: 'Invalid email or password!',
                     status: 'error',
                     duration: 9000,
                     position: 'bottom-right',
                     isClosable: true,
                 });
             }
-    
-            const response = await axios.post('http://localhost:8080/login', { email, password });
-            console.log(response.data); 
-    
-            navigate('/');
+
         } catch (error) {
-            console.error('Login failed:', error);
             toast({
                 title: 'Login Failed',
                 description: 'Invalid email or password.',
@@ -56,7 +52,6 @@ export const LoginForm = () => {
             });
         }
     };
-    
 
 
     return (

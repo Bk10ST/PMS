@@ -14,10 +14,13 @@ import {
 } from "react-bootstrap";
 
 import './blog.css'
+import Navbar from '../Navbar/Navbar';
 
 export const Blog = () => {
     return (
-        <Container>
+       <div> <Navbar/>
+         <Container>
+               
             <h1 className='text-center'> Blog</h1>
             <Row>
                 <Col md={8} className='img-organized pb-3'>
@@ -63,5 +66,6 @@ export const Blog = () => {
                 </Col>
             </Row>
         </Container>
+       </div>
     )
 }

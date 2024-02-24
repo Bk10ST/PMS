@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const RegisteredModel = require('./models/Register')
+const User = require('./models/Register');
 
 const app = express();
 
@@ -9,22 +9,27 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb://127.0.0.1:27017/PMS')
+    .then((res) => console.log('DB connection established'))
+    .catch((err) => console.log(err));
 
 app.post('/register', (req, res) => {
-    RegisteredModel.create(req.body)
+    User.create(req.body)
         .then(register => register.json(register))
         .catch(err => console.log(err));
 })
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
+    if (!email && !password) {
+        res.status(403).json({ message: 'Please enter your email address and password' });
+    }
     try {
         const user = await User.findOne({ email });
         if (user) {
             if (user.password === password) {
-                res.json('Login Success');
+                res.json({ data: user })
             } else {
-                res.json('Password incorrect');
+                res.status(403).json('Password incorrect');
             }
         } else {
             res.json('No User Found !!');

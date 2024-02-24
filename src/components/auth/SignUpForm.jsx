@@ -1,9 +1,10 @@
 import * as Yup from 'yup';
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import { Button, Input, InputGroup, InputRightElement, useToast } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import axios from 'axios';
 
 export const SignUpForm = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ export const SignUpForm = () => {
     const handleSignUp = async (values, { setSubmitting }) => {
         const { email, password } = values;
         try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await new Promise((resolve) => setTimeout(resolve));
             toast({
                 title: 'Account Created',
                 description: 'We have created a new account!',
@@ -27,8 +28,8 @@ export const SignUpForm = () => {
             navigate('/');
 
             const response = await axios.post('http://localhost:8080/register', { email, password });
-            console.log('Response:', response.data);
-                
+            console.log(response.data);
+
         } catch (error) {
             console.error('Sign Up failed:', error);
             toast({
@@ -55,8 +56,8 @@ export const SignUpForm = () => {
             }}
             validationSchema={Yup.object({
                 userName: Yup.string().required('Required'),
-                email: Yup.string().email('Invalid email address').required('Required'),
-                password: Yup.string().required('Required'),
+                email: Yup.string().email('Invalid email address').required('Required').matches(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/, 'Email must contain numbers '),
+                password: Yup.string().required('Required').matches(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/, 'Password must contain numbers '),
                 rememberMe: Yup.boolean(),
             })}
             onSubmit={handleSignUp}

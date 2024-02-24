@@ -1,47 +1,33 @@
 import React from 'react'
-import peronal from "./FrontpageAssests/todo.jpg";
-import progress from "./FrontpageAssests/progress.jpg";
-import account from "./FrontpageAssests/account.jpg";
+import { categories } from '../../mock/data';
+import { Link } from 'react-router-dom';
 
 import './Css-Desk/Reason.css'
 
 const Reason = () => {
+  const title = 'Reason to choose our site'
   return (
     <div className='reason-component'>
       <div className="reason-modules">
-        <h2 className="reason-title">Reason to choose our site</h2>
+        <h2 className="reason-title">{title}</h2>
       </div>
       <div className="card-container ">
-
-        <div className="card" id='card-item' style={{ width: "18rem" }}>
-          <img src={peronal} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Activities</h5>
-            <p className="card-text">
-              Manage Your Personal And Bussiness Activities.
-            </p>
+        {categories.map((item, index) => (
+          <div className="card-reason" id='card-item' key={index} >
+            <img src={item.image} className="card-img-top" alt="reason-img" />
+            <div className="card-body pt-3">
+              <h5 className="card-title">{item.title}</h5>
+              <p className="card-text pt-2">
+                {item.description}
+              </p>
+              <div className='btn-reason'>
+              <Link to='/sign'>
+              <button className='btn' id="start-sign-btn">Get Started</button>
+              </Link>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="card" id='card-item' style={{ width: "18rem" }}>
-          <img src={progress} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Progress</h5>
-            <p className="card-text">
-              Map your Daily progress for improvement.
-            </p>
-          </div>
-        </div>
-
-        <div className="card" id='card-item' style={{ width: "18rem" }}>
-          <img src={account} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Account</h5>
-            <p className="card-text">
-              Manage your Accounting activities for personal and bussiness.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
 
     </div>

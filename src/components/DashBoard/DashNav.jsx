@@ -2,6 +2,7 @@ import React from "react";
 import "./Dash-css/DashNav.css";
 import { Link } from "react-router-dom";
 import logo from "./Dash-assests/white.png";
+
 import useDashHook from "./CustomHooks/DashHook";
 
 
@@ -48,7 +49,7 @@ const DashNav = () => {
               ></i>
               Create-list
             </Link>
-            <Link to="/yourlist">
+            <Link to="/your-list">
               <i
                 className="fa-solid fa-folder"
                 style={{
@@ -111,7 +112,7 @@ const DashNav = () => {
                 ></i>
                 Create-list
               </Link>
-              <Link to="/yourlist">
+              <Link to="/your-list">
                 <i
                   className="fa-solid fa-folder"
                   style={{

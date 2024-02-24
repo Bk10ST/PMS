@@ -3,31 +3,14 @@ import User from "../../assets/images/footerImg.jpg";
 import "./Dash-css/Profile.css";
 import { Chart } from "react-google-charts";
 import Calendar from "./Calender";
+import Dashboard from "./Dashboard";
+
 
 const Profile = () => {
-  const [TotalTask, setTotalTask] = useState(10);
-  const data = [
-    ["week", "task"],
-    ["Sunday", TotalTask],
-    ["Monday", 55],
-    ["Tuesday", 100],
-    ["Wednesday", 44],
-    ["Thursday", 24],
-    ["Friday", 15],
-    ["Saturday", 15],
-  ];
-
-  const options = {
-    title: "Your Weekly Analysis",
-    chartArea: { width: "80%", height: "80%", backgroundColor: "e3e7e6" },
-    hAxis: { title: "week", minValue: 0 },
-    vAxis: { title: "task bar" },
-    backgroundColor: "#e3e7e6",
-    colors: ["7B61FF"],
-  };
-
+ 
   return (
     <div className="profile-department">
+      {/* <Dashboard/> */}
       <div className="card" style={{ width: "18rem" }} id="profle-box">
         <img src={User} className="card-img-top" alt="..." id="profile-img" />
         <div className="card-body" id="profile-box-text">
@@ -53,12 +36,12 @@ const Profile = () => {
           }}
         >
           <div className="card-body">
-            <h5 className="card-title">{TotalTask}</h5>
+            <h5 className="card-title">6</h5>
             <p
               className="card-text"
               style={{
                 color: "white",
-                fontWeight: "bold" 
+                fontWeight: "bold"
               }}
             >
               List Of task
@@ -69,8 +52,8 @@ const Profile = () => {
               style={{
                 color: "white",
                 border: "2px solid white",
-                width: "30%", 
-                height: "30%" , 
+                width: "30%",
+                height: "30%",
                 fontSize: "90%",
                 paddingBottom: "5%"
               }}
@@ -93,12 +76,12 @@ const Profile = () => {
           }}
         >
           <div className="card-body">
-            <h5 className="card-title">{TotalTask}</h5>
+            <h5 className="card-title">7</h5>
             <p
               className="card-text"
               style={{
                 color: "white",
-                fontWeight: "bold" 
+                fontWeight: "bold"
               }}
             >
               List Of task
@@ -109,8 +92,8 @@ const Profile = () => {
               style={{
                 color: "white",
                 border: "2px solid white",
-                width: "30%", 
-                height: "30%" , 
+                width: "30%",
+                height: "30%",
                 fontSize: "90%",
                 paddingBottom: "5%"
               }}
@@ -135,12 +118,12 @@ const Profile = () => {
           }}
         >
           <div className="card-body">
-            <h5 className="card-title">{TotalTask}</h5>
+            <h5 className="card-title">8</h5>
             <p
               className="card-text"
               style={{
                 color: "white",
-                fontWeight: "bold" 
+                fontWeight: "bold"
               }}
             >
               List Of task
@@ -151,10 +134,10 @@ const Profile = () => {
               style={{
                 color: "white",
                 border: "2px solid white",
-                width: "30%", 
-                height: "30%" , 
+                width: "30%",
+                height: "30%",
                 fontSize: "90%",
-                paddingBottom: "5%", 
+                paddingBottom: "5%",
               }}
               id="view"
             >
@@ -165,7 +148,7 @@ const Profile = () => {
 
       </div>
 
-      <div
+      {/* <div
         style={{ width: "100%", maxWidth: 600, height: 500 }}
         className="task-graph"
       >
@@ -176,7 +159,7 @@ const Profile = () => {
           width={"100%"}
           height={"100%"}
         />
-      </div>
+      </div> */}
 
       <div className="calender-section">
         <Calendar />

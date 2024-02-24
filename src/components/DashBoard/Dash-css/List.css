@@ -1,0 +1,19 @@
+.your-list{
+    background-color: var(--dashboard-background-color);
+    height: 100vh;
+}
+.list{
+    height: 100vh;
+    background-color: white;
+    width: 40vh;
+    margin: 10px;
+}
+.tasks{
+    background-color:var(--dashboard-background-color);
+    height: 25%;
+    border-radius: 7px;
+    padding: 2px;
+    padding-top: 5px;
+    margin-bottom: 9px;
+
+}
