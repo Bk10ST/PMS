@@ -14,11 +14,12 @@
 .create-list{
     background-color: #e3e7e6;
     height: 100vh;
+    
 }
 
 .list-form {
     background-color: white;
-    height: 500px;
+    height: 60vh;
     width: 480px;
     margin-left: auto;
     margin-right: auto;

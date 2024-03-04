@@ -2,11 +2,11 @@ import React from 'react'
 import DashNav from './DashNav'
 import Topbar from './Topbar'
 import useDashHook from './CustomHooks/DashHook'
-import { CreateList } from './CreateList'
 import Yourlist from './Yourlist'
 import Profile from './Profile'
 
 import './Dash-css/Dashboard.css'
+import CreateList from './CreateList'
 
 const Dashboard = () => {
   const { hideTopBar } = useDashHook();
@@ -18,7 +18,7 @@ const Dashboard = () => {
         !hideTopBar &&
         <Topbar className='top-bar' />
       }
-      <Profile />
+      {/* <Profile /> */}
       <CreateList />
       <Yourlist />
     </div>

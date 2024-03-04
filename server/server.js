@@ -8,9 +8,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/PMS')
-    .then((res) => console.log('DB connection established'))
-    .catch((err) => console.log(err));
+const connection = async () => {
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/PMS');
+        console.log('Connection established');
+    } catch (error) {
+        console.log(error);
+    }
+}
+connection();
 
 app.post('/register', (req, res) => {
     User.create(req.body)

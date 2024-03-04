@@ -25,10 +25,21 @@ export const SignUpForm = () => {
                 position: 'bottom-right',
                 isClosable: true,
             });
-            navigate('/');
+            navigate('/dashboard');
 
             const response = await axios.post('http://localhost:8080/register', { email, password });
             console.log(response.data);
+            console.log(response.status);
+            if (response.status === 200) {
+                toast({
+                    title: 'Sign Up Successful',
+                    description: 'Successfully signed up',
+                    status: 'success',
+                    duration: 9000,
+                    position: 'bottom-right',
+                    isClosable: true,
+                });
+            }
 
         } catch (error) {
             console.error('Sign Up failed:', error);
@@ -44,7 +55,6 @@ export const SignUpForm = () => {
             setSubmitting(false);
         }
     };
-
 
     return (
         <Formik

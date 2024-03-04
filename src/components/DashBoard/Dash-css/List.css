@@ -1,19 +1,25 @@
-.your-list{
+.your-list {
     background-color: var(--dashboard-background-color);
     height: 100vh;
 }
-.list{
-    height: 100vh;
+
+.list {
+    height: 80vh;
     background-color: white;
     width: 40vh;
-    margin: 10px;
+    margin: 30px;
 }
-.tasks{
-    background-color:var(--dashboard-background-color);
-    height: 25%;
+.tasks {
+    background-color: grey;
+    height: 17vh;
+    width: 35vh;
     border-radius: 7px;
-    padding: 2px;
-    padding-top: 5px;
-    margin-bottom: 9px;
-
+    margin-top: 10px;
+}
+.list-task li b{
+padding-bottom: 10px !important;
+}
+.icons-list{
+    padding-bottom: 10px;
+    margin-top: 7px;
 }

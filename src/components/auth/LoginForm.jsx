@@ -28,7 +28,7 @@ export const LoginForm = () => {
                     position: 'bottom-right',
                     isClosable: true,
                 });
-                navigate('/');
+                navigate('/dashboard');
             }
             else {
                 toast({
